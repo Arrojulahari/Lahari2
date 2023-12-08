@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      body{
+        background-image: linear-gradient(140deg,rgb(173, 108, 234),black);
+        /* overflow-x: hidden;
+        overflow-y: hidden; */
+        background-repeat: no-repeat;
+      
+      }
+      .i{
+        padding: 10px; 
+        border-radius: 30px; 
+        border: none;
+        background-color: lightyellow;
+        border: 1px solid blueviolet;
+       
+      }
+      .a{
+        font-family: Georgia, 'Times New Roman', Times, serif;font-size: 15px;
+        color:blueviolet;
+      }
+      h1{
+        color: white;
+      }
+    </style>
+</head>
+<body>
+  <div style="display:flex;padding: 100px;justify-content: space-around;">
+  <div>
+  <div><h1 style="font-size: 70px; color:lightcyan;">welcome to e-cart  &#128512;</h1>
+  <h1 style="font-size: 25px;">want to see some amazing stuff !?  &#129321;</h1>
+<h1 style="font-size: 25px;">get into our website by regestering here &nbsp<span class="fa fa-arrow-right"></span></h1>
+
+</div>
+</div> 
+   <div style="border-radius: 30px; width: 500px;  text-align: center;background-color:white;">
+    <h1 style="color:blueviolet; font-size:50px;">registration form</h1>
+    <form>
+        <label class="a"for="name" >Full name: </label>
+        <input class="i"type="text" id="name" required><br><br>
+        <label class="a"for="mail">email:</label>
+        <input class="i"type="email" id="mail" required><br><br>
+        <label class="a"for="pass">password:</label>
+        <input class="i"type="password" id="pass" required><br><br>
+        <label class="a" for="number">mobile number:</label>
+        <input class="i"type="text" id="number" required><br><br>
+        <label class="a"for="dob">date of birth</label>
+        <input class="i"type="date" id="dob" required><br><br>
+        <input class="i"type="submit" style="width:100px;color:white;background-color: blueviolet;" >
+        
+    </form>
+    <p>already have an account ? <a href="login.html">login</a></p>
+  </div>
+  </div>
+ 
+    <script>
+           var arr=[]
+        let form=document.forms
+        form[0].addEventListener("submit",(e)=>{
+            e.preventDefault();
+            // localStorage.clear();
+          let Name=e.target[0].value
+          let email=e.target[1].value
+          let psd=e.target[2].value
+          let number=e.target[3].value
+          let dob=e.target[4].value
+          
+       let capitalletter=Name[0].toUpperCase();
+          if(Name[0]===capitalletter&&Name.length>5){
+          
+
+            let pattern=/..@gmail.com$/
+            if(email.match(pattern)){
+
+         let pattern1=/[6789]/
+         if( number.match(pattern1)&&number.length==10){
+          if(psd.length>=5 &&psd.length<=10){
+         
+            let obj={
+            name:Name,
+            mail:email,
+            password:psd,
+            mobilenumber:number,
+            DOB:dob
+
+          }
+          // console.log(pass.length)
+          // console.log(obj)
+        let oldarray=JSON.parse(localStorage.getItem("array"))
+        console.log(oldarray)
+        arr=oldarray!=null?oldarray:[];
+        // console.log(arr)
+        arr.push(obj)
+        // console.log(arr)
+       localStorage.setItem("array",JSON.stringify(arr))
+       location.assign("login.html")
+        }
+        else{
+          alert("password should contain minimum 5 characters and maximum 10 characters")
+        }
+        }
+        else{
+          alert("enter valid input")
+        }
+        }
+        else{
+            alert("enter valid input")
+          }
+
+          }
+      
+       else{
+            alert("enter valid input")
+          }
+          function clear(){
+            e.target[0].value="";
+            e.target[1].value="";
+            e.target[2].value="";
+            e.target[3].value="";
+            e.target[4].value="";
+          }
+          clear();
+      })
+      
+    </script>
+</body>
+</html>

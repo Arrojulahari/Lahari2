@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .ul{
+        width: 500px;
+        /* border: 1px solid black; */
+        text-align:justify;
+        line-height: 2;
+        background-image: linear-gradient(lightgreen,White);
+    }
+    /* body{
+        background-image: url("e3.jpg");
+    } */
+    </style>
+</head>
+
+<body style="background-image: url(./e3.jpg);"><h1>More Details</h1>
+   <ul></ul>
+
+    <script>
+        
+        let btn=document.createElement("button")
+        btn.innerHTML="go back"
+        btn.style.marginLeft="200px"
+        btn.addEventListener("click",()=>{
+            window.history.back()
+        })
+        document.body.appendChild(btn)
+        let ul=document.getElementsByTagName("ul")
+       ul[0].setAttribute("class","ul")
+
+let c =JSON.parse(localStorage.getItem("image"))
+let img=document.createElement("img")
+img.setAttribute("src",c)
+img.style.height="200px"
+img.style.width="200px"
+img.style.marginLeft="150px"
+img.style.marginTop="10px"
+let a =localStorage.getItem("id")
+let li1=document.createElement("li")
+li1.innerHTML=a;
+let b =localStorage.getItem("title")
+let li2=document.createElement("li")
+li2.innerHTML=b;
+let e =localStorage.getItem("category")
+let li3=document.createElement("li")
+li3.innerHTML=e;
+let d =localStorage.getItem("description")
+let li4=document.createElement("li")
+li4.innerHTML=d;
+ul[0].appendChild(img)
+ul[0].appendChild(li3)
+ul[0].appendChild(li1)
+ul[0].appendChild(li2)
+ul[0].appendChild(li4)
+ul[0].appendChild(btn)
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-image: linear-gradient(lightgreen,white); ;">
+   
+   <script>
+     let a=[]
+   
+    
+       a=JSON.parse(localStorage.getItem("Array"))
+       a.map((val,ind)=>{
+         let div1=document.createElement("div")
+         div1.style.backgroundColor="lightyellow"
+         div1.style.width="300px"
+         div1.style.display="flex"
+         div1.style.flexDirection="column"
+         div1.style.alignItems="center"
+       let img=document.createElement("img")
+       img.setAttribute("src",val["image"])
+       img.style.width="300px"
+       img.style.height="300px"
+       let p=document.createElement("p")
+       p.appendChild(img)
+       div1.appendChild(p)
+       let para=document.createElement("p")
+       para.innerHTML=val["id"]
+       div1.appendChild(para)
+       let para1=document.createElement("p")
+       para1.innerHTML=val["title"]
+       div1.appendChild(para1)
+       let para2=document.createElement("p")
+       para2.innerHTML=val["description"]
+       div1.appendChild(para2)
+       let para3=document.createElement("p")
+       para3.innerHTML=(` price: ${val["price"]}`)
+       div1.appendChild(para3)
+       
+       let para5=document.createElement("p")
+       para5.innerHTML=(` rating: ${val["rating"]["rate"]}`)
+       div1.appendChild(para5)
+       let para6=document.createElement("p")
+       para6.innerHTML=( ` count: ${val["rating"]["count"]}`)
+       div1.appendChild(para6)
+       let btn=document.createElement("button")
+       btn.innerHTML="go back"
+       btn.style.marginBottom="20px"
+       btn.addEventListener("click",()=>{
+        window.history.back()
+       })
+       div1.appendChild(btn)
+       document.body.appendChild(div1)
+       let br=document.createElement("br")
+       document.body.appendChild(br)
+       document.body.style.display="flex"
+       document.body.style.flexWrap="wrap"
+       document.body.style.gap="30px"
+       document.body.style.overflowY="scroll"
+       document.body.style.overflowX="hidden"
+       })
+  
+  
+    
+
+   </script>
+
+</body>
+</html>
